@@ -43,9 +43,6 @@ class DbalRepositoryTest extends AbstractRepositoryTest
         parent::setUp();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function createRepository(): RepositoryInterface
     {
         return new DbalRepository($this->connection, 'saga_state');
@@ -67,9 +64,6 @@ class DbalRepositoryTest extends AbstractRepositoryTest
         $schemaManager->createTable($table);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function tearDown(): void
     {
         $this->connection->getSchemaManager()->dropTable($this->tableName);

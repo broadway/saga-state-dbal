@@ -36,9 +36,6 @@ class DbalRepository implements RepositoryInterface
         $this->tableName = $tableName;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function findOneBy(Criteria $criteria, string $sagaId): ?State
     {
         $results = $this->createAndExecuteQuery($criteria, $sagaId)
@@ -66,9 +63,6 @@ class DbalRepository implements RepositoryInterface
         return null;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function save(State $state, string $sagaId): void
     {
         $this->connection->beginTransaction();
