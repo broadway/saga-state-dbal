@@ -23,6 +23,7 @@ use Doctrine\DBAL\Schema\Column;
 use Doctrine\DBAL\Schema\TableDiff;
 use Doctrine\DBAL\Types\IntegerType;
 use Doctrine\DBAL\Types\StringType;
+use PHPUnit\Framework\Attributes\Test;
 
 class DbalRepositoryTest extends AbstractRepositoryTest
 {
@@ -69,9 +70,7 @@ class DbalRepositoryTest extends AbstractRepositoryTest
         $this->connection->getSchemaManager()->dropTable($this->tableName);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_saves_a_state(): void
     {
         $this->addColumns([
@@ -84,9 +83,7 @@ class DbalRepositoryTest extends AbstractRepositoryTest
         parent::it_saves_a_state();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_removes_a_state_when_state_is_done(): void
     {
         $this->addColumns([
@@ -99,9 +96,7 @@ class DbalRepositoryTest extends AbstractRepositoryTest
         parent::it_removes_a_state_when_state_is_done();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_finds_documents_matching_criteria(): void
     {
         $this->addColumns([
@@ -113,17 +108,13 @@ class DbalRepositoryTest extends AbstractRepositoryTest
         parent::it_finds_documents_matching_criteria();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_finds_documents_matching_in_criteria(): void
     {
         $this->markTestSkipped('cannot store nested values');
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_returns_null_when_no_states_match_the_criteria(): void
     {
         $this->addColumns([
@@ -134,9 +125,7 @@ class DbalRepositoryTest extends AbstractRepositoryTest
         parent::it_returns_null_when_no_states_match_the_criteria();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function saving_a_state_object_with_the_same_id_only_keeps_the_last_one(): void
     {
         $this->addColumns([
@@ -149,9 +138,7 @@ class DbalRepositoryTest extends AbstractRepositoryTest
         parent::saving_a_state_object_with_the_same_id_only_keeps_the_last_one();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_throws_an_exception_if_multiple_matching_elements_are_found(): void
     {
         $this->addColumns([
